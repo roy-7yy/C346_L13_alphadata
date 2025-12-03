@@ -60,15 +60,19 @@ const Home = ({navigation}) => {
     return (
         <View>
             <StatusBar/>
-            <Button title='Add Letter'
-                    onPress={() => {
-                        let datastr =JSON.stringify(mydata)
-                        navigation.navigate("Add",{datastring:datastr});
-                    }}/>
-            <SectionList sections={datasource}
-                         renderItem={renderItem}
-                         renderSectionHeader={sectionHeader
-                         }/>
+            <Button title='Add Letter' onPress={() => {
+                let datastr = JSON.stringify(mydata);
+                navigation.navigate("Add", {datastring: datastr});
+            }} />
+            <SectionList
+                sections={mydata}
+                renderItem={renderItem}
+                renderSectionHeader={({section:{title, bgcolor}}) => (
+                    <Text style={[styles.headerText, {backgroundColor: bgcolor}]}>
+                        {title}
+                    </Text>
+                )}
+            />
         </View>
     );
 };

@@ -9,8 +9,8 @@ const Add = ({navigation, route}) => {
 
     const setData = async(value) =>{
         AsyncStorage.setItem("alphadata", value);
-        navigation.navigate('Home');
-    }
+        navigation.navigate("Home");
+    };
 
     return (
         <View>
@@ -32,7 +32,8 @@ const Add = ({navigation, route}) => {
                         mydata[indexnum].data.push(item);
                         let stringdata = JSON.stringify(mydata);
                         setData(stringdata);
-                    }}
+                    }
+            }
             />
         </View>
     );
